@@ -206,10 +206,6 @@ img, svg { display: block; }
   white-space: nowrap;
   text-align: start;
 }
-.kb-note { margin: 16px 0 0; font-size: .82rem; line-height: 1.6; color: rgb(255 255 255 / .84); }
-
-.rail-foot { margin-top: auto; padding-top: 20px; border-top: 1px solid rgb(255 255 255 / .16); }
-.tagline { margin: 0; font: 500 1.1rem/1.5 var(--font-body); color: rgb(255 255 255 / .92); text-align: start; }
 
 /* ---------- chat column ---------- */
 
@@ -263,20 +259,6 @@ img, svg { display: block; }
 
 .welcome { padding-block: clamp(32px, 9vh, 96px) 40px; }
 .welcome > * { animation: rise .7s var(--ease) both; animation-delay: calc(var(--i, 0) * 80ms); }
-
-.eyebrow {
-  /* lower-third tab */
-  display: inline-block;
-  margin: 0 0 22px;
-  padding: 8px 22px 8px 12px;
-  background: var(--crimson);
-  color: #fff;
-  font: 500 .7rem/1 var(--font-mono);
-  letter-spacing: .14em;
-  text-transform: uppercase;
-  clip-path: polygon(0 0, 100% 0, calc(100% - 10px) 100%, 0 100%);
-}
-[dir="rtl"] .eyebrow { padding: 8px 12px 8px 22px; clip-path: polygon(0 0, 100% 0, 100% 100%, 10px 100%); }
 
 .welcome-title {
   margin: 0;
@@ -563,7 +545,7 @@ img, svg { display: block; }
 .composer-hint {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
+  justify-content: flex-end;
   gap: 4px 12px;
   margin: 8px 6px 0;
   font-size: .74rem;
@@ -571,7 +553,7 @@ img, svg { display: block; }
 }
 
 /* Arabic: no tracking or uppercase on Latin-style labels */
-[lang="ar"] :is(.brand-channel, .rail-label, .chat-head, .eyebrow, .suggestion-tag, .msg-name, .sources-label) {
+[lang="ar"] :is(.brand-channel, .rail-label, .chat-head, .suggestion-tag, .msg-name, .sources-label) {
   font-family: var(--font-body);
   font-size: .8rem;
   letter-spacing: 0;
@@ -606,7 +588,7 @@ img, svg { display: block; }
   .btn-new-label { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
   .btn-lang { padding: 0 12px; }
   .chat-head { padding-block: 10px; }
-  .hint-keys { display: none; }
+  .composer-hint { display: none; }
 }
 
 @media (max-width: 640px) {
