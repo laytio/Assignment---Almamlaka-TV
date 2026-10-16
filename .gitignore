@@ -1,0 +1,24 @@
+# Python
+.venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+
+# Secrets
+.env
+.env.*
+!.env.example
+
+# Generated data (vector stores, indexes, caches)
+backend/storage/
+chroma/
+*.log
+
+# Frontend
+node_modules/
+dist/
+
+# OS / editor
+.DS_Store
+.vscode/
+.idea/

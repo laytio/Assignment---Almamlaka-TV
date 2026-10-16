@@ -1,0 +1,34 @@
+# Secrets
+.env
+.env.*
+!.env.example
+
+# Local environments and caches
+.venv/
+venv/
+__pycache__/
+*.pyc
+.pytest_cache/
+node_modules/
+*.log
+
+# VCS, editor, OS
+.git/
+.gitignore
+.vscode/
+.idea/
+.DS_Store
+
+# Not needed at runtime
+tests/
+evaluation/
+README.md
+DEPLOYMENT.md
+railway.json
+Dockerfile
+.dockerignore
+
+# Frontend dev-only files (would otherwise be publicly served)
+frontend/serve.py
+frontend/text.test.mjs
+frontend/README.md

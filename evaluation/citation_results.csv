@@ -1,0 +1,11 @@
+﻿test_id,top_k,citation_status,citations_detected,invalid_citations,citations
+budget_ar,3,VALID,1,,Almamlaka_Budget_Timeline.pdf p.1
+budget_ar,6,VALID,1,,Almamlaka_Budget_Timeline.pdf p.1
+budget_en,3,VALID,1,,Almamlaka_Budget_Timeline.pdf p.1
+budget_en,6,VALID,1,,Almamlaka_Budget_Timeline.pdf p.1
+conflict_ar,3,VALID,2,,Almamlaka_Budget_Timeline.pdf p.2; Almamlaka_Team_Governance.pdf p.1
+conflict_ar,6,VALID,3,,Almamlaka_Budget_Timeline.pdf p.2; Almamlaka_Project_Overview.pdf p.1; Almamlaka_Team_Governance.pdf p.1
+conflict_en,3,VALID,2,,Almamlaka_Budget_Timeline.pdf p.2; Almamlaka_Team_Governance.pdf p.1
+conflict_en,6,VALID,3,,Almamlaka_Budget_Timeline.pdf p.2; Almamlaka_Project_Overview.pdf p.1; Almamlaka_Team_Governance.pdf p.1
+out_of_scope,3,VALID_REFUSAL,0,,
+out_of_scope,6,VALID_REFUSAL,0,,

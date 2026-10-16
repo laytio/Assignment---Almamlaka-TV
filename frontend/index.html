@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Almamlaka TV — Knowledge Assistant</title>
+  <meta name="description" content="Ask about Almamlaka TV's Digital Expansion Initiative. Answers are grounded in the source documents, with page citations.">
+  <meta name="theme-color" content="#9b1b1f">
+  <link rel="icon" type="image/png" href="assets/almamlaka-mark.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Readex+Pro:wght@300..700&family=Reem+Kufi:wght@400..700&display=swap">
+  <link rel="stylesheet" href="styles.css">
+  <script type="module" src="app.js"></script>
+</head>
+<body>
+  <a class="skip-link" href="#question" data-i18n="skip">Skip to question</a>
+
+  <div class="app">
+    <aside class="rail" data-i18n-attr="aria-label:railLabel">
+      <div class="brand">
+        <img class="brand-mark" src="assets/almamlaka-mark.png" alt="" width="52" height="52">
+        <div class="brand-text">
+          <span class="brand-channel" data-i18n="channel">Almamlaka TV</span>
+          <h1 class="brand-title" data-i18n="appTitle">Knowledge Assistant</h1>
+        </div>
+      </div>
+
+      <div class="rail-actions">
+        <button type="button" id="newChat" class="btn-new">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg>
+          <span class="btn-new-label" data-i18n="newChat">New chat</span>
+        </button>
+        <button type="button" id="langToggle" class="btn-lang" data-i18n="langSwitch" data-i18n-attr="aria-label:langSwitchLabel"></button>
+      </div>
+
+      <section class="kb rail-extra" aria-labelledby="kbTitle">
+        <h2 id="kbTitle" class="rail-label" data-i18n="kbTitle">Knowledge base</h2>
+        <p id="kbStatus" class="kb-status" data-state="loading">
+          <span class="kb-dot" aria-hidden="true"></span>
+          <span id="kbStatusText"></span>
+        </p>
+        <ul id="docList" class="doc-list"></ul>
+        <p class="kb-note" data-i18n="kbNote"></p>
+      </section>
+
+      <footer class="rail-foot rail-extra">
+        <p class="tagline" lang="ar" dir="rtl">الأردن مبتدأ ونحن الخبر</p>
+      </footer>
+    </aside>
+
+    <main class="chat" id="main">
+      <div class="chat-head">
+        <span class="live"><span class="live-dot" aria-hidden="true"></span><span data-i18n="grounded">Document-grounded</span></span>
+        <span class="session"><span data-i18n="session">Session</span> <bdi id="sessionId" class="session-id"></bdi></span>
+      </div>
+
+      <div class="scroller" id="scroller">
+        <section class="welcome" id="welcome" aria-labelledby="welcomeTitle">
+          <p class="eyebrow" style="--i:0"><span data-i18n="eyebrow">Digital Expansion Initiative</span></p>
+          <h2 id="welcomeTitle" class="welcome-title" style="--i:1" data-i18n="welcomeTitle">Ask the documents.</h2>
+          <p class="welcome-lead" style="--i:2" data-i18n="welcomeLead"></p>
+          <h3 class="sr-only" data-i18n="suggestionsLabel">Suggested questions</h3>
+          <div class="suggestions" id="suggestions"></div>
+        </section>
+
+        <div class="messages" id="messages" role="log" aria-live="polite" aria-relevant="additions" data-i18n-attr="aria-label:conversation"></div>
+      </div>
+
+      <form class="composer" id="composer" novalidate>
+        <div class="composer-inner">
+          <label for="question" class="sr-only" data-i18n="inputLabel">Your question</label>
+          <div class="field">
+            <textarea id="question" rows="1" dir="auto" maxlength="2000" autocomplete="off" data-i18n-attr="placeholder:placeholder"></textarea>
+            <button type="submit" id="send" class="btn-send" data-i18n-attr="aria-label:send" disabled>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
+            </button>
+          </div>
+          <p class="composer-hint">
+            <span data-i18n="hintScope">Answers are limited to the provided documents.</span>
+            <span class="hint-keys" data-i18n="hintKeys">Enter to send · Shift + Enter for a new line</span>
+          </p>
+        </div>
+      </form>
+    </main>
+  </div>
+</body>
+</html>

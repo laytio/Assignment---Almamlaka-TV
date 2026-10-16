@@ -1,0 +1,11 @@
+﻿test_id,top_k,checks_passed,checks_total,evidence_alignment_score,failed_checks
+budget_ar,3,2,2,1.0,
+budget_ar,6,2,2,1.0,
+budget_en,3,2,2,1.0,
+budget_en,6,2,2,1.0,
+conflict_ar,3,3,3,1.0,
+conflict_ar,6,3,3,1.0,
+conflict_en,3,3,3,1.0,
+conflict_en,6,3,3,1.0,
+out_of_scope,3,1,1,1.0,
+out_of_scope,6,1,1,1.0,

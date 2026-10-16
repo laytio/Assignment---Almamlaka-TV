@@ -1,0 +1,50 @@
+﻿test_id,top_k,question,retrieval_recall,latency_seconds,answer,retrieved_sources
+budget_ar,3,ما سبب زيادة ميزانية المشروع؟,1.0,4.25,"السبب في زيادة ميزانية المشروع هو أن اللجنة المالية قررت في ديسمبر 2026 تعديل الميزانية الإجمالية للمشروع من $2,400,000 إلى $2,600,000، وذلك لاستيعاب تكاليف إضافية مرتبطة بدمج التلفزيون الذكي (smart TV)، والتي لم تكن ضمن.Scope الأصلي للمشروع. 
+
+المصدر: Almamlaka_Budget_Timeline.pdf | الصفحة 1.",Almamlaka_Budget_Timeline.pdf p.1; Almamlaka_Team_Governance.pdf p.1; Almamlaka_Project_Overview.pdf p.1
+budget_ar,6,ما سبب زيادة ميزانية المشروع؟,1.0,3.32,"السبب في زيادة ميزانية المشروع هو تضمين تكاليف إضافية ل集成 smart TV (ال智屏电视) التي لم تكن مدرجة في النطاق الأصلي للمشروع. وقد قرر لجنة المالية في ديسمبر 2026 تعديل الميزانية الإجمالية للمشروع من $2,400,000 إلى $2,600,000 لتعويض هذه التكاليف الإضافية. 
+
+المصدر: Almamlaka_Budget_Timeline.pdf | الصفحة: 1.",Almamlaka_Budget_Timeline.pdf p.1; Almamlaka_Team_Governance.pdf p.1; Almamlaka_Project_Overview.pdf p.1; Almamlaka_Budget_Timeline.pdf p.2; Almamlaka_Project_Overview.pdf p.2; Almamlaka_Team_Governance.pdf p.2
+budget_en,3,Why was the project budget increased?,1.0,4.56,"The project budget was increased to account for additional smart TV integration costs that were not included in the original scope. The total project budget was revised to $2,600,000 following a decision by the Finance Committee in December 2026 (Source: Almamlaka_Budget_Timeline.pdf, Page 1).",Almamlaka_Budget_Timeline.pdf p.1; Almamlaka_Team_Governance.pdf p.1; Almamlaka_Project_Overview.pdf p.1
+budget_en,6,Why was the project budget increased?,1.0,17.82,"The project budget was increased from $2,400,000 to $2,600,000 following a revision by the Finance Committee in December 2026. This adjustment was made to account for **additional smart TV integration costs** that were not included in the original project scope, as noted in the *Almamlaka_Budget_Timeline.pdf* (Page 1, ""Budget Notes"" section).",Almamlaka_Budget_Timeline.pdf p.1; Almamlaka_Team_Governance.pdf p.1; Almamlaka_Project_Overview.pdf p.1; Almamlaka_Budget_Timeline.pdf p.2; Almamlaka_Project_Overview.pdf p.2; Almamlaka_Team_Governance.pdf p.2
+conflict_ar,3,هل يوجد تعارض في تواريخ إطلاق المشروع بين المستندات؟,1.0,16.98,"نعم، هناك تعارض في تواريخ الإطلاق بين المستندات:
+
+1. وفقًا لمستند **Almamlaka_Team_Governance.pdf (الصفحة 1)**، تم تأجيل تاريخ الإطلاق العام من **15 مارس 2027** إلى **1 أبريل 2027** بعد اجتماع اللجنة الإشرافية في 20 يناير 2027، وذلك لمنح وقت إضافي لاختبار تكامل تلفزيونات الذكاء (Smart TV) الذي تم تحديده كعنصر خطر عالي.
+
+2. في المقابل، مستند **Almamlaka_Budget_Timeline.pdf (الصفحة 2)** يذكر أن تاريخ الإطلاق العام كان مخططًا ليكون **15 مارس 2027**، مع ملاحظة أن أي تأخير في إكمال التطوير بعد 1 مارس 2027 سيؤثر مباشرة على هذا الموعد.
+
+الاختلاف يعكس تحديثًا في المواعيد بعد اجتماع اللجنة الإشرافية، حيث تم تعديل التاريخ في مستند الإدارة (Almamlaka_Team_Governance.pdf) بينما ظل التاريخ الأصلي في مستند الجدول الزمني والموازنة دون تعديل.",Almamlaka_Team_Governance.pdf p.1; Almamlaka_Budget_Timeline.pdf p.2; Almamlaka_Team_Governance.pdf p.2
+conflict_ar,6,هل يوجد تعارض في تواريخ إطلاق المشروع بين المستندات؟,1.0,28.87,"نعم، هناك تعارض في تواريخ الإطلاق بين المستندات، لكنه مُوثق كتحديث وليس تناقضًا.  
+
+1. **المستند الأصلي**:  
+   - في ملف **Almamlaka_Project_Overview.pdf** (الصفحة 1)، يُذكر أن ""تاريخ الإطلاق المخطط له هو 15 مارس 2027"".  
+   - في ملف **Almamlaka_Budget_Timeline.pdf** (الصفحة 2)، يُذكر أن ""تاريخ الإطلاق العام هو 15 مارس 2027"".  
+
+2. **التحديث**:  
+   - في ملف **Almamlaka_Team_Governance.pdf** (الصفحة 1)، يُذكر أن ""تاريخ الإطلاق العام تم تحويله إلى 1 أبريل 2027"" بعد اجتماع لجنة القيادة في 20 يناير 2027، بسبب الحاجة إلى وقت إضافي لاختبار التكامل مع شاشات التلفزيون الذكية، الذي تم تحديده كعنصر خطر عالٍ.  
+
+3. **السبب**:  
+   - في ملف **Almamlaka_Budget_Timeline.pdf** (الصفحة 2)، يُشار إلى أن ""اختبار التكامل مع شاشات التلفزيون الذكية هو أعلى عنصر خطر في الجدول الزمني""، مما يفسر التأخير.  
+
+الاختلاف بين 15 مارس و1 أبريل 2027 هو نتيجة قرار مُعمَل به رسميًا وليس تناقضًا في المعلومات.",Almamlaka_Team_Governance.pdf p.1; Almamlaka_Budget_Timeline.pdf p.2; Almamlaka_Team_Governance.pdf p.2; Almamlaka_Project_Overview.pdf p.1; Almamlaka_Project_Overview.pdf p.2; Almamlaka_Budget_Timeline.pdf p.1
+conflict_en,3,Are there conflicting project launch dates across the documents?,1.0,15.68,"Yes, there are conflicting project launch dates across the documents:  
+
+1. **Original Launch Date**:  
+   - **March 15, 2027** is listed in *Almamlaka_Budget_Timeline.pdf* (Page 2, ""Public launch"" milestone).  
+
+2. **Revised Launch Date**:  
+   - **April 1, 2027** is stated in *Almamlaka_Team_Governance.pdf* (Page 1, ""Revised Launch Date"" section). This change was approved after the steering committee meeting on January 20, 2027, to address risks related to smart TV integration testing.  
+
+**Conflict Explanation**:  
+The discrepancy arises from an update to the timeline following the identified high-risk smart TV integration issue. The revised date (April 1, 2027) supersedes the original March 15 date.",Almamlaka_Budget_Timeline.pdf p.2; Almamlaka_Team_Governance.pdf p.1; Almamlaka_Budget_Timeline.pdf p.1
+conflict_en,6,Are there conflicting project launch dates across the documents?,1.0,19.12,"Yes, there are conflicting project launch dates across the documents. Here's the breakdown:
+
+1. **Original Launch Date**:  
+   - **March 15, 2027** is listed in the *Almamlaka_Budget_Timeline.pdf* (Page 2) and *Almamlaka_Project_Overview.pdf* (Page 1).  
+
+2. **Revised Launch Date**:  
+   - **April 1, 2027** is stated in *Almamlaka_Team_Governance.pdf* (Page 1), following a steering committee decision on January 20, 2027, to delay the launch for additional smart TV integration testing.  
+
+The discrepancy reflects a documented update to the timeline rather than a contradiction. The revised date accounts for risks identified in the QA phase.",Almamlaka_Budget_Timeline.pdf p.2; Almamlaka_Team_Governance.pdf p.1; Almamlaka_Budget_Timeline.pdf p.1; Almamlaka_Project_Overview.pdf p.2; Almamlaka_Project_Overview.pdf p.1; Almamlaka_Team_Governance.pdf p.2
+out_of_scope,3,Who is the current CEO of Apple?,,8.01,I couldn't find this information in the provided documents.,Almamlaka_Team_Governance.pdf p.1; Almamlaka_Budget_Timeline.pdf p.2; Almamlaka_Project_Overview.pdf p.2
+out_of_scope,6,Who is the current CEO of Apple?,,10.98,I couldn't find this information in the provided documents.,Almamlaka_Team_Governance.pdf p.1; Almamlaka_Budget_Timeline.pdf p.2; Almamlaka_Project_Overview.pdf p.2; Almamlaka_Project_Overview.pdf p.1; Almamlaka_Team_Governance.pdf p.2; Almamlaka_Budget_Timeline.pdf p.1
