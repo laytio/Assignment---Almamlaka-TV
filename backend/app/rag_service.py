@@ -1,6 +1,7 @@
 from app.document_loader import load_all_pdfs
 from app.chunking import create_chunks
 from app.embedding_service import EmbeddingService
+from app.evidence_notes import find_documented_changes, format_changes
 from app.llm_service import generate_grounded_response
 
 class RAGService:
@@ -77,6 +78,17 @@ class RAGService:
 
         # Step 2: Build context
         context = self.build_context(retrieved_chunks)
+
+        # Step 2b: Quote sentences that explicitly record a change
+        # to a value relevant to the question
+        changes = find_documented_changes(
+            chunks=retrieved_chunks,
+            question=question,
+            model=self.embedding_service.model
+        )
+
+        if changes:
+            context += "\n\n" + format_changes(changes)
 
         # Step 3: Generate grounded answer
         answer = generate_grounded_response(
