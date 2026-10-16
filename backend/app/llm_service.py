@@ -375,15 +375,32 @@ STRICT RULES:
 25. Do not invent responsibilities, permissions,
     approvals, or decision-making authority that
     the documents do not explicitly establish.
+    Being a lead, contact, or escalation point for
+    an item, or bringing it to another body for
+    review, is not approval authority unless the
+    documents explicitly say that person approves it.
 
 26. When a question contains multiple conditions,
     evaluate each condition separately before
     reaching a final conclusion.
 
-27. If the documents do not establish whether an
-    action is authorized, explicitly state that
-    authorization cannot be determined from the
-    provided documents.
+27. For questions about whether someone may or can
+    do something, give one of three answers:
+    - Yes, only if the documents explicitly grant
+      that permission.
+    - No, only if the documents explicitly prohibit it
+      or explicitly require another party's approval
+      for that case.
+    - Otherwise, authorization cannot be determined
+      from the provided documents: begin with
+      "The documents do not establish whether..."
+      (in Arabic: "لا تحدد المستندات ما إذا كان...")
+      and do not begin with Yes or No.
+    The absence of a particular approval requirement is
+    neither permission nor prohibition. A requirement
+    stated for values above a threshold does not apply
+    to a value exactly equal to that threshold.
+    Your opening sentence must agree with your conclusion.
 
 28. When interpreting policies, distinguish the
     exact requirement stated in the documents
@@ -442,7 +459,18 @@ STRICT RULES:
                 "value only if no other excerpt records a later or "
                 "conflicting change; otherwise say the documents do not "
                 "establish which value is current. Ignore the section "
-                "when it does not concern the question."
+                "when it does not concern the question.\n\n"
+                "If the question asks whether someone may or can do "
+                "something, apply rule 27 and choose exactly one outcome: "
+                "Yes only if the documents explicitly establish that "
+                "independent authority; No only if the documents explicitly "
+                "require another party's approval for this specific action "
+                "or amount, or explicitly prohibit it; otherwise begin with "
+                "\"The documents do not establish whether\" (in Arabic: "
+                "\"لا تحدد المستندات ما إذا كان\") instead of Yes or No. "
+                "Compare thresholds strictly: \"above\" / \"أكثر من\" means "
+                "strictly greater than, so a value exactly equal to the "
+                "threshold is not above it."
             ),
         },
     ]

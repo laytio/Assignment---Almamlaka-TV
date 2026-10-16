@@ -237,10 +237,12 @@ The recorded benchmark results were produced before the latest evidence-handling
 
 Some evaluation checks use deterministic or heuristic criteria. They do not establish that every generated answer is factually correct.
 
-## Limitations
+## Known Limitations
 
 The current implementation has several known limitations:
 
+- Generated page-level citations can occasionally be inaccurate (for example, the right document with the wrong page number). Verify them against the source documents.
+- Complex authorization and numerical-threshold reasoning may occasionally be inconsistent, for example treating "above" a threshold as "at or above" it.
 - Language-model responses may vary between requests.
 - Documented-change detection depends on supported language patterns and a provisional semantic similarity threshold.
 - Questions with ambiguous references may not trigger the documented-change detection step.
