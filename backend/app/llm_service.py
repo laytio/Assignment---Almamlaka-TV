@@ -30,6 +30,50 @@ ARABIC_REFUSAL = (
     "لا أجد هذه المعلومات في المستندات المقدمة."
 )
 
+# Shown instead of an answer that is still a repetition loop after one retry.
+ENGLISH_FALLBACK = (
+    "I couldn't generate a reliable answer to that question. "
+    "Please rephrase it or ask something more specific."
+)
+
+ARABIC_FALLBACK = (
+    "تعذّر إنشاء إجابة موثوقة لهذا السؤال. "
+    "يرجى إعادة صياغته أو طرح سؤال أكثر تحديدًا."
+)
+
+
+# ==========================================
+# 2b. Repetition Loop Detection
+# ==========================================
+
+# A unit of 2–40 characters (a word or short phrase) repeated 10+ times in a row.
+REPEATED_UNIT = re.compile(r"(\S.{1,39}?)(?:\s*\1){9,}", re.DOTALL)
+
+# Long answers where under 25% of the words are distinct.
+MIN_WORDS_FOR_DIVERSITY = 100
+MIN_DISTINCT_RATIO = 0.25
+
+
+def is_degenerate(text: str) -> bool:
+    """
+    Detect repetition loops (e.g. one word repeated hundreds of times).
+
+    Normal answers repeat citations, numbers, and table separators a few
+    times; they stay well below both limits.
+    """
+
+    normalized = re.sub(r"\s+", " ", text).strip()
+
+    if REPEATED_UNIT.search(normalized):
+        return True
+
+    words = re.findall(r"\w+", normalized.lower())
+
+    return (
+        len(words) >= MIN_WORDS_FOR_DIVERSITY
+        and len(set(words)) / len(words) < MIN_DISTINCT_RATIO
+    )
+
 
 # ==========================================
 # 3. Language Detection
@@ -217,6 +261,74 @@ def normalize_refusal(
                 return ENGLISH_REFUSAL
 
     return answer
+
+
+# ==========================================
+# 7b. Completion Request
+# ==========================================
+
+def request_completion(
+    client,
+    model: str,
+    messages: list,
+    language: str,
+    penalize_repetition: bool = False
+):
+    """
+    Send one chat completion request and return (choice, answer text).
+
+    Repetition penalties are used only for the retry after a loop:
+    on normal requests they would discourage repeating the filenames
+    and numbers that grounded citations need.
+    """
+
+    extra_body = {
+        "reasoning": {
+            "enabled": False
+        }
+    }
+
+    penalties = {}
+
+    if penalize_repetition:
+        extra_body["repetition_penalty"] = 1.1
+        penalties["frequency_penalty"] = 0.3
+
+    response = client.chat.completions.create(
+        model=model,
+        messages=messages,
+        temperature=0,
+        max_tokens=1000,
+        extra_body=extra_body,
+        **penalties,
+    )
+
+    # Debugging information
+    choice = response.choices[0]
+    message = choice.message
+
+    answer = message.content or ""
+
+    print("\n========== LLM DEBUG ==========")
+
+    print("Model:", response.model)
+
+    print("Detected language:", language)
+
+    print("Finish reason:", choice.finish_reason)
+
+    print("Content length:", len(answer))
+
+    print(
+        "Reasoning present:",
+        bool(getattr(message, "reasoning", None))
+    )
+
+    print("Token usage:", response.usage)
+
+    print("================================\n")
+
+    return choice, answer
 
 
 # ==========================================
@@ -511,45 +623,33 @@ STRICT RULES:
     # 15. OpenRouter API Request
     # ==========================================
 
-    response = client.chat.completions.create(
+    choice, answer = request_completion(
+        client=client,
         model=model,
         messages=messages,
-        temperature=0,
-        max_tokens=1000,
-        extra_body={
-            "reasoning": {
-                "enabled": False
-            }
-        },
+        language=language
     )
 
     # ==========================================
-    # 16. Debugging Information
+    # 16. Repetition Loop Guard
     # ==========================================
 
-    choice = response.choices[0]
-    message = choice.message
+    # Greedy decoding (temperature 0) can fall into a loop.
+    # Retry once with repetition penalties; never show a loop.
+    if is_degenerate(answer):
+        print("Repetition loop detected; retrying once with penalties.")
 
-    answer = message.content or ""
+        choice, answer = request_completion(
+            client=client,
+            model=model,
+            messages=messages,
+            language=language,
+            penalize_repetition=True
+        )
 
-    print("\n========== LLM DEBUG ==========")
-
-    print("Model:", response.model)
-
-    print("Detected language:", language)
-
-    print("Finish reason:", choice.finish_reason)
-
-    print("Content length:", len(answer))
-
-    print(
-        "Reasoning present:",
-        bool(getattr(message, "reasoning", None))
-    )
-
-    print("Token usage:", response.usage)
-
-    print("================================\n")
+        if is_degenerate(answer):
+            print("Repetition loop persisted; returning safe fallback.")
+            return ARABIC_FALLBACK if language == "ar" else ENGLISH_FALLBACK
 
     # ==========================================
     # 17. Handle Empty Responses
