@@ -212,7 +212,6 @@ Latest local deterministic test results:
 ```
 
 The 12 skipped tests require live language-model calls and are intentionally excluded from the default test run.
-Latest local deterministic test results:
 
 
 The automated tests cover document processing, retrieval evidence, documented-change detection, conflict-handling logic, and API behavior.
