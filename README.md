@@ -205,14 +205,15 @@ Run the automated test suite:
 ```bash
 PYTHONPATH=backend python -m pytest tests/ -q
 ```
-
 Latest local deterministic test results:
 
 ```text
-67 passed, 8 skipped
+88 passed, 12 skipped
 ```
 
-The eight skipped tests require live language-model calls and are intentionally excluded from the default test run.
+The 12 skipped tests require live language-model calls and are intentionally excluded from the default test run.
+Latest local deterministic test results:
+
 
 The automated tests cover document processing, retrieval evidence, documented-change detection, conflict-handling logic, and API behavior.
 
